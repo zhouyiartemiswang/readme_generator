@@ -1,6 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const data = require("./utils/generateMarkdown.js");
+const fileContent = require("./utils/generateMarkdown.js");
 
 // array of questions for user
 const questions = [
@@ -28,7 +28,7 @@ const nameArray = ["username", "email", "title", "description", "license", "depe
 // const nameArray = ["username", "license"];
 
 // array of license choices for license question
-const licenseChoices = ["MIT", "Apache License 2.0", "BSD"];
+const licenseChoices = ["MIT", "Apache 2.0", "BSD 3-Clause", "ISC"];
 
 let promptObj = [];
 
@@ -48,11 +48,20 @@ for (let i = 0; i < nameArray.length; i++) {
 
 inquirer
     .prompt(promptObj)
-    .then(function(answers) {
-        console.log(answers);
+    .then(function(data) {
+        // console.log(data);
+        writeToFile("README.md", data);
     });
+
 // function to write README file
 function writeToFile(fileName, data) {
+    // console.log(fileName);
+    // console.log(data);
+    fs.writeFile(fileName, fileContent(data), function(err) {
+        if (err) {
+            console.log("Error");
+        }
+    });
 }
 
 // function to initialize program
