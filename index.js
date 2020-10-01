@@ -15,17 +15,8 @@ const questions = [
     "What does the user need to know about contributing to the repo?"
 ];
 
-// test questions
-// const questions = [
-//     "What is your GitHub username?",
-//     "What kind of license should your project have?"
-// ];
-
 // array of names 
 const nameArray = ["username", "email", "title", "description", "license", "dependencyCommand", "testCommand", "usage", "contribution"];
-
-// test names
-// const nameArray = ["username", "license"];
 
 // array of license choices for license question
 const licenseChoices = ["MIT", "Apache 2.0", "BSD 3-Clause", "ISC"];
@@ -43,7 +34,8 @@ function writeToFile(fileName, data) {
 
 // function to initialize program
 function init() {
-
+    
+    // generate objects for inquirer prompt
     let promptObj = [];
 
     for (let i = 0; i < nameArray.length; i++) {
