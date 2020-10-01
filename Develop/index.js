@@ -30,43 +30,41 @@ const nameArray = ["username", "email", "title", "description", "license", "depe
 // array of license choices for license question
 const licenseChoices = ["MIT", "Apache 2.0", "BSD 3-Clause", "ISC"];
 
-let promptObj = [];
-
-for (let i = 0; i < nameArray.length; i++) {
-    promptObj[i] = {
-        type: "input",
-        message: questions[i],
-        name: nameArray[i]
-    }
-    if (i === 4) {
-        promptObj[i].type = "list";
-        promptObj[i].choices = licenseChoices;
-    }
-}
-
-// console.log(promptObj);
-
-inquirer
-    .prompt(promptObj)
-    .then(function(data) {
-        // console.log(data);
-        writeToFile("README.md", data);
-    });
-
 // function to write README file
 function writeToFile(fileName, data) {
-    // console.log(fileName);
-    // console.log(data);
-    fs.writeFile(fileName, fileContent(data), function(err) {
+
+    fs.writeFile(fileName, fileContent(data), function (err) {
         if (err) {
             console.log("Error");
         }
     });
+
 }
 
 // function to initialize program
 function init() {
 
+    let promptObj = [];
+
+    for (let i = 0; i < nameArray.length; i++) {
+        promptObj[i] = {
+            type: "input",
+            message: questions[i],
+            name: nameArray[i]
+        }
+        if (i === 4) {
+            promptObj[i].type = "list";
+            promptObj[i].choices = licenseChoices;
+        }
+    }
+
+    inquirer
+        .prompt(promptObj)
+        .then(function (data) {
+            console.log("Generating README...");
+            writeToFile("README.md", data);
+        });
+        
 }
 
 // function call to initialize program
