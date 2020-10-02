@@ -54,7 +54,7 @@ function init() {
         .prompt(promptObj)
         .then(function (data) {
             console.log("Generating README...");
-            writeToFile("README.md", data);
+            writeToFile("README_Example.md", data);
         });
         
 }
