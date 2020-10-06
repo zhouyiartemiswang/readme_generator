@@ -2,9 +2,11 @@
 # README Generator [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description 
+
 This project creates a command-line application that dynamically generates a professional README from a user's input using the Inquirer package. 
 
 ## Table of Contents 
+
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
@@ -13,16 +15,18 @@ This project creates a command-line application that dynamically generates a pro
 * [Questions](#questions)
 
 ## Installation
+
 Install dependencies:
 ```
 npm install 
 ```
 
 ## Usage
+
 Step 1 Invoke the application
 
 ```
-npm index.js
+node index.js
 ```
 
 Step 2 Answer all prompted questions
@@ -51,6 +55,7 @@ No other contributions.
 None. 
 
 ## Questions 
+
 GitHub Username: zhouyiartemiswang
 
 GitHub Profile: [github.com/zhouyiartemiswang](https://github.com/zhouyiartemiswang) 
